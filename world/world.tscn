@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://caeecl3548mbf"]
+
+[ext_resource type="Script" path="res://world/world.gd" id="1_88tit"]
+[ext_resource type="TileSet" uid="uid://bi5fjmesxbmrx" path="res://world/world_tileset.tres" id="2_05l06"]
+[ext_resource type="Script" path="res://world/chunk_rules.gd" id="4_o1jpl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5tqpg"]
+seed = 2
+fractal_lacunarity = 2.166
+domain_warp_amplitude = 30.236
+
+[sub_resource type="Resource" id="Resource_kw1ma"]
+script = ExtResource("4_o1jpl")
+height_map = SubResource("FastNoiseLite_5tqpg")
+amplitude = 32.0
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_88tit")
+chunks_rules = SubResource("Resource_kw1ma")
+
+[node name="Map" type="TileMap" parent="."]
+position = Vector2(284, 311)
+tile_set = ExtResource("2_05l06")
+format = 2
+layer_0/name = "front"
+layer_0/tile_data = PackedInt32Array(-262144, 0, 0, -196609, 0, 0, -262145, 0, 0, -262146, 0, 0, -196610, 0, 0, -196611, 0, 0, -196612, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -262147, 0, 0)
+layer_1/name = "back"
+layer_1/enabled = true
+layer_1/modulate = Color(0.627451, 0.627451, 0.627451, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.8, 0.8)
+
+[node name="Chunks" type="Node" parent="."]

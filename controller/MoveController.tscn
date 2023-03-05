@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" uid="uid://doiak3ek3ag7q" path="res://controller/move_controller_button.svg" id="2"]
+[ext_resource type="Script" path="res://controller/MoveController.gd" id="2_f3kvm"]
+[ext_resource type="Texture2D" uid="uid://bfj5wvmte15o4" path="res://controller/move_controller_background.svg" id="3"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 30.0
+
+[node name="MoveController" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.498039)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3")
+script = ExtResource("2_f3kvm")
+
+[node name="MoveControllerButton" type="TouchScreenButton" parent="."]
+self_modulate = Color(0.698039, 0.698039, 0.698039, 0.882353)
+position = Vector2(-15, -15)
+texture_normal = ExtResource("2")
+shape = SubResource("1")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://cwk1mle58ta4g" path="res://controller/MoveController.tscn" id="1"]
+
+[node name="Controles" type="Node"]
+
+[node name="MoveController" parent="." instance=ExtResource("1")]
+position = Vector2(70, 35)
